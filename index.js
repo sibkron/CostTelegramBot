@@ -12,15 +12,24 @@ bot.start((ctx) =>
 );
 bot.help((ctx) => ctx.reply(text.commands));
 
-bot.command("course", async (ctx) => {
+bot.command("expenses", async (ctx) => {
   try {
     await ctx.replyWithHTML(
-      "<b>Курсы</b>",
+      "<b>Расходы</b>",
       Markup.inlineKeyboard([
         [
-          Markup.button.callback("Редакторы", "btn_1"),
-          Markup.button.callback("Обзоры", "btn_2"),
-          Markup.button.callback("JS", "btn_3"),
+          Markup.button.callback("Продукты", "btn_1"),
+          Markup.button.callback("Дети", "btn_2"),
+          Markup.button.callback("Красота и здоровье", "btn_3"),
+        ],
+        [
+          Markup.button.callback("Медицина", "btn_4"),
+          Markup.button.callback("Обеды", "btn_5"),
+          Markup.button.callback("Одежда и обувь", "btn_6"),
+        ],
+        [
+          Markup.button.callback("Хоз. расходы", "btn_7"),
+          Markup.button.callback("Прочие расходы", "btn_8"),
         ],
       ])
     );
@@ -47,9 +56,14 @@ function addActionBot(name, src, text) {
   });
 }
 
-addActionBot("btn_1", "./img/1.jpg", text.text1);
-addActionBot("btn_2", "./img/2.jpg", text.text2);
+addActionBot("btn_1", false, text.text1);
+addActionBot("btn_2", false, text.text2);
 addActionBot("btn_3", false, text.text3);
+addActionBot("btn_4", false, text.text4);
+addActionBot("btn_5", false, text.text5);
+addActionBot("btn_6", false, text.text6);
+addActionBot("btn_7", false, text.text7);
+addActionBot("btn_8", false, text.text8);
 
 bot.launch();
 
