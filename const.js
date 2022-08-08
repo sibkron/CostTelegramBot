@@ -1,5 +1,6 @@
 const commands = `
 /start - Перезапустить бота
+/expenses - Расходы
 /help - Помощь
 `;
 
